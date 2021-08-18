@@ -1,0 +1,65 @@
+form{
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .flex-input{
+        display: flex;
+        align-items: flex-start;
+
+        label{
+            background-color: $main-color;
+            color: white;
+            padding: 5px 7px;
+
+            i{
+                font-size: 16px;
+            }
+        }
+
+        input{
+            padding: 3px 5px;
+            width: 100%;
+        }
+    }
+    .flex-input, textarea{
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    textarea{
+        max-width: calc(100% - 8px); /* padding + border */
+        min-width: calc(100% - 8px);
+        min-height: 150px;
+        padding: 3px;
+    }
+    button{
+        background-color: $main-color;
+        color: white;
+        border: 3px solid $main-color;
+        transition: all 0.5s ease-out;
+        padding: 8px 0;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 250px;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: $bg-color;
+        color: $main-color;
+    }
+}
+
+#contact p{
+    margin-top: 30px;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px){
+    form {
+        padding: 0 10px;
+        width: calc(100% - 20px);	
+    }
+}

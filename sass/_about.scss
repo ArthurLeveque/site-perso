@@ -1,0 +1,23 @@
+.about-struct {
+    display: flex;
+    align-items: center;
+
+    img{
+        margin-left: 50px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+}
+
+@media screen and (max-width: 800px){
+    .about-struct {
+        flex-direction: column;
+
+        img{
+            margin-left: 0;
+            margin-top: 20px;
+        }
+    }
+}

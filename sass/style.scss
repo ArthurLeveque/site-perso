@@ -1,0 +1,262 @@
+$main-color : #D7263D;
+$bg-color : #2d2d2d;
+$lighter-black : #363636;
+$font-color : #f9f9f9;
+
+@import "header";
+@import "nav";
+@import "about";
+@import "skills";
+@import "experiences";
+@import "contact";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: arial, sans-serif;
+	overflow-x: hidden;
+}
+
+p, li, input, textarea{
+	font-family: roboto ,arial, sans-serif;
+}
+
+h1, h2, a, button {
+	font-family: open sans, arial, sans-serif;
+}
+
+main{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	background-color: $bg-color;
+	color: $font-color;
+	padding-bottom: 50px;
+
+	.transition-to-main{
+		width: 100%;
+		height: 100px;
+		background: rgb(31,31,31);
+		background: linear-gradient(180deg, rgba(31,31,31,1) 0%, rgba(45,45,45,1) 100%);
+	}
+
+	.infos{
+		color: #b0b0b0;
+		text-align: center;
+		font-size: 14px
+	}
+
+	.bloc{
+		padding-top: 130px; // ~ hauteur nav + un peu plus
+		// margin-bottom: 50px;
+		width: 1200px;
+		min-height: calc(100vh - 420px); // hauteur et margin parra + padding top
+
+		.bloc-title{
+			text-align: center;
+			position: relative;
+			padding-bottom: 15px;
+			margin-bottom: 70px;
+			h2{
+				font-size: 50px;
+			}
+			:after{
+				content: "";
+	    		position: absolute;
+	    		width: 40px;
+	    		height: 4px;
+	    		background: $main-color;
+	    		bottom: 0;
+	    		left: calc(50% - 20px);
+			}
+		}
+
+		p{margin-bottom: 30px;}
+	}
+}
+
+// PARALLAX
+
+.parallax{
+	z-index: 1;
+	width: 100%;
+	min-height: 250px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin-top: 50px;
+
+	&::after{
+		background: inherit;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: 2;
+		filter: blur(2px);
+		-webkit-filter: blur(2px);
+	}
+
+	img{
+		z-index: 3;
+
+		width: 200px;
+		height: 200px;
+	}
+}
+
+.counters{
+	z-index: 3;
+	display: flex;
+	justify-content: space-between;
+	width: 1200px;
+	text-shadow: 1px 1px black;
+
+	.counter-bloc{
+		display: flex;
+		align-items: center;
+	}
+
+	.counter-icon{
+		font-size: 100px;
+	}
+
+	.counter-text{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		margin-bottom: 15px;
+		margin-left: 15px;
+
+		p{margin-bottom: 0}
+	}	
+
+	.counter{
+		color: $main-color;
+		font-weight: bold;
+		font-size: 40px;
+		font-family: open sans, arial, sans-serif;
+	}
+}
+
+.tools{
+	z-index: 4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 1200px;
+	text-shadow: 1px 1px black;
+
+	p{
+		margin-bottom: 30px;
+		font-size: 30px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	.working-environments{
+		display: flex;
+		justify-content: space-around;
+
+		width: 100%;
+	}
+
+	.working-environment{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		p:first-child{
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		i{
+			margin-bottom: 10px;
+			font-size: 80px;
+		}
+		.vsc{
+			-webkit-transform:rotate(90deg);
+			-moz-transform: rotate(90deg);
+			-ms-transform: rotate(90deg);
+			-o-transform: rotate(90deg);
+			transform: rotate(90deg);
+		}
+		p:last-child{
+			font-size: 15px;
+			margin-bottom: 0;
+			text-transform: inherit;
+		}
+	}	
+}
+
+@media screen and (max-width: 1200px){
+	main{
+		.bloc{
+			padding: 130px 20px 0 20px;
+			width: calc(100% - 40px);	
+		}	
+	}
+	
+	.counters {
+		width: 100%;
+		justify-content: space-around;
+	}
+	
+
+}
+
+@media screen and (max-width: 800px){
+	main{
+		.bloc{
+			padding: 130px 10px 0 10px;
+			width: calc(100% - 20px);	
+		}
+	}
+
+	.counters .counter-icon {
+			font-size: 80px;
+		}
+
+	.tools p {
+		font-size: 25px;
+	}	
+}
+
+@media screen and (max-width: 600px){
+	.counters {
+		flex-direction: column;
+		padding: 0 10px;
+
+		.counter-bloc:first-child{
+			margin-bottom: 10px;
+		}
+	}
+
+	.tools {
+		p{
+			margin-bottom: 10px;
+		}
+		.working-environments {
+			flex-direction: column;
+		}
+	}
+}
+
+@media screen and (max-width: 400px){
+	.tools p {
+		font-size: 20px;
+	}
+}
